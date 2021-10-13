@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.atessam.mycocktails.ui.MainFragment"
+        android:label="Cocktails"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="drink"
+                app:argType="com.atessam.mycocktails.data.model.Cocktail"
+                 />
+        </action>
+        <action
+            android:id="@+id/action_mainFragment_to_favoritosFragment"
+            app:destination="@id/favoritosFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/DetailFragment"
+        android:name="com.atessam.mycocktails.ui.cockdetails.CocktailDetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_cocktail_details">
+
+        <argument
+            android:name="drink"
+            app:argType="com.atessam.mycocktails.data.model.Cocktail"
+             />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoritosFragment"
+        android:name="com.atessam.mycocktails.ui.favourite.FavouriteFragment"
+        android:label="My Favorites"
+        tools:layout="@layout/favourite_fragment">
+        <action
+            android:id="@+id/action_favoritosFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/favoritosFragment">
+
+            <argument
+                android:name="drink"
+                app:argType="com.atessam.mycocktails.data.model.Cocktail"
+                 />
+        </action>
+    </fragment>
+</navigation>
